@@ -1,0 +1,46 @@
+#include "stdio.h"
+
+int main(void) {
+    // Disable stdout buffering
+    setvbuf(stdout, NULL, _IONBF, 0);
+    
+    int x = -274;
+    unsigned int y = -1;
+    double z = 2.0/9.0;
+    char astr[]="Andy rocks the casbah.";
+    int testing=0;
+    
+    //straight forward formatting
+    printf("x = %d\n", x);
+    printf("x = %i\n", x);
+    printf("y = %u\n", y);
+    printf("z = %f\n", z);
+    printf("z = %F\n", z);
+    printf("astr = %s\n", astr);
+    
+    //octal anyone?
+    printf("Why are programmers always mixing up Halloween and Christmas?\n");
+    unsigned int month = 10;
+    unsigned int day = 25;
+    printf("month %d %o\nday %d %o\n", month, month, day, day);
+    
+    //hex
+    y=12246238;
+    printf("%X\n",y);
+    printf("%x\n",y);
+    
+    //a new one for you
+    printf("This is %n", &testing);
+    printf("%d characters long\n", testing);
+
+    //an order of operations test for you
+    testing = 0;
+    printf("ANDY%n (not %d)", &testing, testing);
+    printf(" has length %d\n", testing);
+    
+
+    
+    fflush(stdout);
+    usleep(1);
+    return 0;
+}
